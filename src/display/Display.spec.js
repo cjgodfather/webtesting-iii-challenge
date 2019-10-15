@@ -9,11 +9,15 @@ afterEach(rtl.cleanup);
 describe("Display", () => {
   it("it rendered correctly", () => {
     const wrapper = rtl.render(<Display />);
+
     const hasOpen = wrapper.queryByText(/open/i);
     const hasUnlocked = wrapper.queryByText(/unlocked/i);
 
     expect(wrapper.baseElement).toMatchSnapshot();
+
     expect(hasOpen).toBeInTheDocument();
+    expect(hasOpen).toHaveClass("led green-led");
     expect(hasUnlocked).toBeInTheDocument();
+    expect(hasUnlocked).toHaveClass("led green-led");
   });
 });
